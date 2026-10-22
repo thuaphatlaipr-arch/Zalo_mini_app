@@ -1,0 +1,37 @@
+{
+  "name": "zalo-mini-app-vp-thads-phan-rang",
+  "version": "1.0.0",
+  "description": "Zalo Mini App Giới thiệu Doanh nghiệp & Sản phẩm Dịch vụ - Văn phòng Thừa phát lại Phan Rang",
+  "scripts": {
+    "dev": "vite",
+    "start": "zmp start",
+    "build": "vite build",
+    "deploy": "zmp deploy",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
+    "zmp-sdk": "^2.33.0",
+    "zmp-ui": "^1.18.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.1.0",
+    "zmp-cli": "^1.10.0"
+  },
+  "keywords": [
+    "zalo-mini-app",
+    "thua-phat-lai",
+    "phan-rang",
+    "thi-hanh-an-dan-su",
+    "vi-bang",
+    "zmp-ui"
+  ],
+  "author": "Văn Phòng Thừa Phát Lại Phan Rang",
+  "license": "MIT"
+}

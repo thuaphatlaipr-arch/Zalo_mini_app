@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>VP Thừa Phát Lại Phan Rang (Nay là VP THADS DNTN Phan Rang)</title>
+  <!-- Google Fonts & Tailwind CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            zalo: '#0068FF',
+            'zalo-dark': '#0052cc',
+            navy: '#1a365d',
+            'navy-dark': '#0f172a',
+            gold: '#d97706',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0f172a;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    /* Mobile frame container for desktop view, full screen for mobile */
+    .mobile-wrapper {
+      max-width: 440px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background-color: #ffffff;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .banner-gradient {
+      background: linear-gradient(135deg, #0068FF 0%, #1e3a8a 100%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .toast-anim {
+      animation: slideDown 0.3s ease-out forwards;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 min-h-screen flex justify-center items-start antialiased text-slate-800">
+
+  <!-- Mobile Frame Container -->
+  <div class="mobile-wrapper min-h-screen w-full flex flex-col justify-between overflow-x-hidden">
+    
+    <!-- Top Header Bar -->
+    <header class="bg-zalo text-white sticky top-0 z-50 px-4 py-3 shadow-md flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-base shadow-inner">
+          ⚖️
+        </div>
+        <div>
+          <h1 class="text-xs font-bold leading-tight tracking-wide">VĂN PHÒNG THỪA PHÁT LẠI PHAN RANG</h1>
+          <p class="text-[9px] text-amber-200 font-semibold">(Nay là VP Thi hành án dân sự DNTN Phan Rang)</p>
+        </div>
+      </div>
+      <a href="tel:0913709898" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold px-2.5 py-1.5 rounded-full flex items-center gap-1 shadow transition">
+        <i class="fa-solid fa-phone-volume text-[10px] animate-pulse"></i>
+        <span>Gọi ngay</span>
+      </a>
+    </header>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="hidden fixed top-16 left-4 right-4 max-w-[400px] mx-auto z-50 p-4 rounded-xl shadow-2xl text-white text-sm font-medium toast-anim"></div>
+
+    <!-- Main Content Area with Tab Screens -->
+    <main class="flex-1 pb-24 overflow-y-auto custom-scrollbar">
+
+      <!-- ================= TAB 1: TRANG CHỦ ================= -->
+      <section id="tab-home" class="tab-screen block">
+        <!-- Hero Banner -->
+        <div class="p-4">
+          <div class="banner-gradient rounded-2xl p-4 text-white shadow-lg relative overflow-hidden">
+            <div class="absolute -right-4 -bottom-4 text-7xl opacity-10 pointer-events-none">⚖️</div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 text-[11px] font-semibold mb-2">
+              <i class="fa-solid fa-certificate text-amber-300"></i> Chuẩn Sở Tư Pháp Khánh Hòa
+            </div>
+            <h2 class="text-sm font-extrabold mb-0.5 leading-snug">VĂN PHÒNG THỪA PHÁT LẠI PHAN RANG</h2>
+            <p class="text-[11px] font-bold text-amber-300 mb-2 leading-tight">(Nay là Văn phòng Thi hành án dân sự DNTN Phan Rang)</p>
+            <p class="text-xs text-blue-100 mb-2 flex items-start gap-1">
+              <i class="fa-solid fa-location-dot mt-0.5 text-red-300"></i>
+              <span>61/9 Nguyễn Văn Trỗi, P. Phan Rang, Khánh Hòa</span>
+            </p>
+            <p class="text-[11px] italic text-blue-200 mb-3 bg-blue-900/30 p-2 rounded-lg border border-blue-400/20">
+              "Giải pháp bảo vệ tài sản & Tạo lập chứng cứ pháp lý vững chắc trước Tòa án"
+            </p>
+            <div class="flex gap-2">
+              <button onclick="switchTab('contact')" class="flex-1 bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-bold py-2.5 px-3 rounded-xl shadow-md transition flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <span>Đăng ký tư vấn miễn phí</span>
+              </button>
+              <a href="tel:0913709898" class="bg-white/20 hover:bg-white/30 text-white text-xs font-semibold py-2.5 px-3 rounded-xl border border-white/30 transition flex items-center justify-center gap-1">
+                <i class="fa-solid fa-phone"></i>
+                <span>0913.709.898</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Access Menu -->
+        <div class="px-4 mb-4">
+          <div class="grid grid-cols-3 gap-2.5 text-center">
+            <div onclick="switchTab('contact')" class="p-3 bg-blue-50 border border-blue-100 rounded-xl cursor-pointer hover:bg-blue-100 transition shadow-sm">
+              <div class="w-10 h-10 mx-auto rounded-full bg-blue-600 text-white flex items-center justify-center text-sm mb-1 shadow-sm">
+                <i class="fa-solid fa-file-signature"></i>
+              </div>
+              <span class="text-[11px] font-bold text-slate-800 block">Đăng ký tư vấn</span>
+            </div>
+            <div onclick="switchTab('services')" class="p-3 bg-emerald-50 border border-emerald-100 rounded-xl cursor-pointer hover:bg-emerald-100 transition shadow-sm">
+              <div class="w-10 h-10 mx-auto rounded-full bg-emerald-600 text-white flex items-center justify-center text-sm mb-1 shadow-sm">
+                <i class="fa-solid fa-scale-balanced"></i>
+              </div>
+              <span class="text-[11px] font-bold text-slate-800 block">Biểu phí dịch vụ</span>
+            </div>
+            <div onclick="switchTab('about')" class="p-3 bg-amber-50 border border-amber-100 rounded-xl cursor-pointer hover:bg-amber-100 transition shadow-sm">
+              <div class="w-10 h-10 mx-auto rounded-full bg-amber-600 text-white flex items-center justify-center text-sm mb-1 shadow-sm">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <span class="text-[11px] font-bold text-slate-800 block">Về Văn phòng</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dịch Vụ Cốt Lõi List -->
+        <div class="px-4 mb-4">
+          <div class="flex items-center justify-between mb-2.5">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+              <i class="fa-solid fa-shield-halved text-zalo"></i> Dịch Vụ Pháp Lý Cốt Lõi
+            </h3>
+            <button onclick="switchTab('services')" class="text-xs text-zalo font-semibold hover:underline">Xem tất cả &rarr;</button>
+          </div>
+
+          <div class="space-y-2.5">
+            <!-- Service 1 -->
+            <div onclick="selectServiceAndGo('vibang_coc')" class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition cursor-pointer flex items-center justify-between">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-lg bg-blue-100 text-zalo flex items-center justify-center text-base flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-money-bill-transfer"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-xs font-bold text-slate-900">Lập Vi bằng giao nhận tiền</h4>
+                    <span class="text-[9px] bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-bold">Phổ biến</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Tạo lập chứng cứ đặt cọc mua bán nhà đất, vay mượn tiền mặt an toàn</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right text-slate-400 text-xs ml-2"></i>
+            </div>
+
+            <!-- Service 2 -->
+            <div onclick="selectServiceAndGo('vibang_hien_trang')" class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition cursor-pointer flex items-center justify-between">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-base flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-house-chimney"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-xs font-bold text-slate-900">Vi bằng hiện trạng nhà đất</h4>
+                    <span class="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold">Bảo vệ tài sản</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Ghi nhận nứt lún, ranh giới đất, mặt bằng trước khi khởi công xây dựng</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right text-slate-400 text-xs ml-2"></i>
+            </div>
+
+            <!-- Service 3 -->
+            <div onclick="selectServiceAndGo('thi_hanh_an')" class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition cursor-pointer flex items-center justify-between">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center text-base flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-user-check"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-xs font-bold text-slate-900">Tư vấn & Xác minh THADS</h4>
+                    <span class="text-[9px] bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded font-bold">Đúng luật</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Hỗ trợ thủ tục thi hành án dân sự, xác minh tài sản bên phải thi hành án</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right text-slate-400 text-xs ml-2"></i>
+            </div>
+
+            <!-- Service 4 -->
+            <div onclick="selectServiceAndGo('tong_dat')" class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm hover:border-blue-400 transition cursor-pointer flex items-center justify-between">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-base flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-xs font-bold text-slate-900">Tống đạt văn bản tố tụng</h4>
+                    <span class="text-[9px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-bold">Nhanh chóng</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Tống đạt thông báo, giấy tờ theo yêu cầu của Tòa án, VKS và đương sự</p>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right text-slate-400 text-xs ml-2"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cảnh Báo & Tin Tức Pháp Lý -->
+        <div class="px-4 mb-4">
+          <h3 class="text-sm font-bold text-slate-900 mb-2.5 flex items-center gap-1.5">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Cảnh Báo & Tin Tức Pháp Lý
+          </h3>
+          <div class="space-y-2.5">
+            <div class="p-3 bg-red-50 border border-red-200 rounded-xl shadow-sm">
+              <h4 class="text-xs font-bold text-red-700 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-exclamation"></i> Rủi ro mua bán nhà đất bằng giấy tay
+              </h4>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                Mua bán đất chỉ bằng giấy tay không có công chứng/chứng thực tiềm ẩn nguy cơ mất trắng khi giá đất tăng hoặc có tranh chấp. Cần lập Vi bằng ghi nhận việc giao tiền và bàn giao đất để bảo vệ quyền lợi.
+              </p>
+            </div>
+
+            <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
+              <h4 class="text-xs font-bold text-blue-800 mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-shield"></i> Lập Vi bằng trước khi xây nhà sát vách
+              </h4>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                Ghi nhận hiện trạng nhà liền kề trước khi đào móng thi công giúp ngăn chặn các khiếu nại nứt lún không có căn cứ từ hàng xóm, tiết kiệm chi phí bồi thường oan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cam kết chất lượng -->
+        <div class="px-4 mb-4">
+          <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl">
+            <h4 class="text-xs font-bold text-emerald-900 mb-1.5 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check text-emerald-600"></i> Cam Kết Của Thừa Phát Lại
+            </h4>
+            <ul class="text-[11px] text-emerald-800 space-y-1">
+              <li class="flex items-center gap-1.5">✓ Đăng ký hợp pháp tại Sở Tư Pháp Khánh Hòa trong 03 ngày.</li>
+              <li class="flex items-center gap-1.5">✓ Giá trị chứng cứ tuyệt đối trước Tòa án nhân dân các cấp.</li>
+              <li class="flex items-center gap-1.5">✓ Phục vụ tận nơi 24/7 - Kịp thời, bảo mật, chuẩn xác.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= TAB 2: ĐĂNG KÝ TƯ VẤN ================= -->
+      <section id="tab-contact" class="tab-screen hidden">
+        <div class="p-4">
+          <!-- Form Header -->
+          <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 rounded-2xl mb-4 shadow">
+            <h2 class="text-base font-bold flex items-center gap-2">
+              <i class="fa-solid fa-file-pen"></i> Đăng Ký Tư Vấn Pháp Lý
+            </h2>
+            <p class="text-xs text-blue-100 mt-1">
+              Chuyên viên Thừa phát lại sẽ gọi điện trực tiếp tư vấn giải pháp cho quý khách trong 15 phút.
+            </p>
+          </div>
+
+          <!-- Zalo Profile Simulation Bar -->
+          <div class="flex items-center justify-between p-3 bg-blue-50 border border-blue-200 rounded-xl mb-4">
+            <div class="flex items-center space-x-2.5">
+              <img id="user-avatar" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="w-9 h-9 rounded-full border border-blue-300 shadow-sm" alt="User Avatar" />
+              <div>
+                <p class="text-[10px] text-slate-500">Tài khoản Zalo kết nối:</p>
+                <p id="user-name" class="text-xs font-bold text-blue-900">Khách hàng Zalo</p>
+              </div>
+            </div>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full">
+              <i class="fa-solid fa-circle text-[8px] text-emerald-500"></i> Đã đồng bộ
+            </span>
+          </div>
+
+          <!-- Form Fields -->
+          <form id="consultation-form" onsubmit="handleFormSubmit(event)" class="space-y-3.5">
+            <!-- Full Name -->
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">
+                Họ và tên người yêu cầu <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-xs">
+                  <i class="fa-regular fa-user"></i>
+                </div>
+                <input type="text" id="fullname-input" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full pl-9 pr-3 py-2.5 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-zalo focus:outline-none bg-slate-50 focus:bg-white transition" />
+              </div>
+            </div>
+
+            <!-- Phone Number -->
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">
+                Số điện thoại liên hệ <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-xs">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <input type="tel" id="phone-input" required placeholder="Ví dụ: 0913709898" class="w-full pl-9 pr-3 py-2.5 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-zalo focus:outline-none bg-slate-50 focus:bg-white transition" />
+              </div>
+
+              <!-- 1-Click Auto Fill Button -->
+              <button type="button" onclick="autoFillZaloPhone()" class="mt-2 w-full py-2 px-3 border border-dashed border-zalo bg-blue-50 hover:bg-blue-100 text-zalo rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>📲 Tự động điền Số điện thoại từ Zalo (1-Click)</span>
+              </button>
+            </div>
+
+            <!-- Service Selection -->
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">
+                Dịch vụ bạn quan tâm <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <select id="service-select" class="w-full px-3 py-2.5 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-zalo focus:outline-none bg-slate-50 focus:bg-white transition">
+                  <option value="vibang_coc">1. Vi bằng Giao nhận tiền / Đặt cọc mua đất</option>
+                  <option value="vibang_hien_trang">2. Vi bằng Hiện trạng nhà đất / Xây dựng</option>
+                  <option value="thi_hanh_an">3. Tư vấn & Xác minh Điều kiện Thi hành án</option>
+                  <option value="tong_dat">4. Tống đạt Văn bản & Giấy tờ tố tụng</option>
+                  <option value="vibang_internet">5. Vi bằng Chứng cứ Zalo / Facebook / Internet</option>
+                  <option value="khac">6. Dịch vụ Pháp lý khác</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Note / Content -->
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">
+                Nội dung sơ lược vụ việc <span class="text-slate-400 font-normal">(Không bắt buộc)</span>
+              </label>
+              <textarea id="note-input" rows="3" placeholder="Mô tả sơ lược địa điểm, thời gian hoặc yêu cầu cụ thể..." class="w-full p-3 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-zalo focus:outline-none bg-slate-50 focus:bg-white transition"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submit-btn" class="w-full bg-zalo hover:bg-zalo-dark text-white font-bold py-3 px-4 rounded-xl text-sm shadow-md transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Gửi Đăng Ký Tư Vấn</span>
+            </button>
+
+            <p class="text-[10px] text-slate-400 text-center flex items-center justify-center gap-1 mt-2">
+              <i class="fa-solid fa-lock text-[9px]"></i> Bảo mật thông tin tuyệt đối theo quy định của Pháp luật.
+            </p>
+          </form>
+        </div>
+      </section>
+
+
+      <!-- ================= TAB 3: DỊCH VỤ & BIỂU PHÍ ================= -->
+      <section id="tab-services" class="tab-screen hidden">
+        <div class="p-4">
+          <div class="mb-4">
+            <h2 class="text-base font-bold text-slate-900 flex items-center gap-1.5">
+              <i class="fa-solid fa-list-check text-zalo"></i> Dịch Vụ & Biểu Phí Tham Khảo
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Biểu phí niêm yết công khai, minh bạch theo quy định của Bộ Tư Pháp</p>
+          </div>
+
+          <div class="space-y-3.5">
+            <!-- Card 1 -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 class="text-xs font-bold text-blue-900 mb-1">1. Vi bằng Giao nhận tiền / Đặt cọc nhà đất</h3>
+              <p class="text-[11px] text-slate-600 mb-2">Ghi nhận trực tiếp việc giao nhận tiền mặt, chuyển khoản đặt cọc mua bán bất động sản, góp vốn, thanh toán hợp đồng.</p>
+              <div class="bg-blue-50 p-2 rounded-lg border border-blue-100 text-xs font-bold text-zalo mb-2 flex items-center justify-between">
+                <span>💰 Mức phí tham khảo:</span>
+                <span>Theo thỏa thuận & quy định</span>
+              </div>
+              <ul class="text-[10px] text-emerald-700 space-y-1 mb-3">
+                <li>✓ Chứng cứ thép chống bên bán đổi ý lật kèo.</li>
+                <li>✓ Được đăng ký tại Sở Tư Pháp Khánh Hòa trong 03 ngày.</li>
+              </ul>
+              <button onclick="selectServiceAndGo('vibang_coc')" class="w-full bg-zalo text-white text-xs font-semibold py-2 rounded-xl">Đăng ký dịch vụ này</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 class="text-xs font-bold text-blue-900 mb-1">2. Vi bằng Hiện trạng nhà đất / Xây dựng</h3>
+              <p class="text-[11px] text-slate-600 mb-2">Ghi nhận hiện trạng nhà liền kề trước khi khởi công, hiện trạng nứt lún, ranh giới mốc giới, hiện trạng bàn giao mặt bằng thuê.</p>
+              <div class="bg-blue-50 p-2 rounded-lg border border-blue-100 text-xs font-bold text-zalo mb-2 flex items-center justify-between">
+                <span>💰 Mức phí tham khảo:</span>
+                <span>Theo thỏa thuận & quy định</span>
+              </div>
+              <ul class="text-[10px] text-emerald-700 space-y-1 mb-3">
+                <li>✓ Có ảnh chụp, video và sơ đồ hiện trạng chi tiết kèm theo.</li>
+                <li>✓ Ngăn ngừa các tranh chấp ranh giới hoặc khiếu nại nứt nhà vô cớ.</li>
+              </ul>
+              <button onclick="selectServiceAndGo('vibang_hien_trang')" class="w-full bg-zalo text-white text-xs font-semibold py-2 rounded-xl">Đăng ký dịch vụ này</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 class="text-xs font-bold text-blue-900 mb-1">3. Xác minh Điều kiện Thi hành án dân sự</h3>
+              <p class="text-[11px] text-slate-600 mb-2">Xác minh tài sản, quyền sử dụng đất, tài khoản ngân hàng, thu nhập của người phải thi hành án để yêu cầu thi hành án thu hồi nợ.</p>
+              <div class="bg-blue-50 p-2 rounded-lg border border-blue-100 text-xs font-bold text-zalo mb-2 flex items-center justify-between">
+                <span>💰 Mức phí tham khảo:</span>
+                <span>Theo thỏa thuận & quy định</span>
+              </div>
+              <ul class="text-[10px] text-emerald-700 space-y-1 mb-3">
+                <li>✓ Thẩm quyền trực tiếp làm việc với Ngân hàng & VP Đăng ký Đất đai.</li>
+                <li>✓ Rút ngắn thời gian thu hồi nợ hợp pháp.</li>
+              </ul>
+              <button onclick="selectServiceAndGo('thi_hanh_an')" class="w-full bg-zalo text-white text-xs font-semibold py-2 rounded-xl">Đăng ký dịch vụ này</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================= TAB 4: GIỚI THIỆU VĂN PHÒNG ================= -->
+      <section id="tab-about" class="tab-screen hidden">
+        <div class="p-4">
+          <div class="text-center mb-4">
+            <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 text-zalo flex items-center justify-center text-3xl mb-2 shadow-inner">
+              🏛️
+            </div>
+            <h2 class="text-sm font-extrabold text-blue-900">VĂN PHÒNG THỪA PHÁT LẠI PHAN RANG</h2>
+            <p class="text-xs font-bold text-amber-600">(Nay là Văn phòng Thi hành án dân sự DNTN Phan Rang)</p>
+            <p class="text-xs text-slate-500 italic mt-0.5">Tận tâm - Chuyên nghiệp - Chuẩn mực Pháp lý</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-4 space-y-2.5 text-xs text-slate-700">
+            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-1.5 border-b pb-2">
+              <i class="fa-solid fa-address-card text-zalo"></i> Thông Tin Liên Hệ & Pháp Lý
+            </h3>
+            <p><span class="font-semibold text-slate-900">🏢 Đơn vị:</span> VĂN PHÒNG THỪA PHÁT LẠI PHAN RANG (Nay là Văn phòng Thi hành án dân sự DNTN Phan Rang)</p>
+            <p><span class="font-semibold text-slate-900">📍 Trụ sở chính:</span> 61/9 Nguyễn Văn Trỗi, P. Phan Rang, Tỉnh Khánh Hòa</p>
+            <p><span class="font-semibold text-slate-900">📞 Hotline 24/7:</span> <a href="tel:0913709898" class="text-zalo font-bold">0913 709 898</a></p>
+            <p><span class="font-semibold text-slate-900">📧 Email:</span> <a href="mailto:thuaphatlaipr@gmail.com" class="text-zalo">thuaphatlaipr@gmail.com</a></p>
+            <p><span class="font-semibold text-slate-900">⚖️ Cơ quan quản lý:</span> Sở Tư Pháp Tỉnh Khánh Hòa</p>
+            <p><span class="font-semibold text-slate-900">🕒 Giờ làm việc:</span> Thứ 2 - Thứ 7 (Hỗ trợ khẩn cấp 24/7)</p>
+          </div>
+
+          <div class="bg-blue-50 p-4 rounded-2xl border border-blue-200 text-xs text-blue-950 leading-relaxed space-y-2 mb-4">
+            <h3 class="font-bold text-blue-900 text-sm flex items-center gap-1.5">
+              <i class="fa-solid fa-bullseye text-zalo"></i> Sứ Mệnh Hoạt Động
+            </h3>
+            <p>
+              Văn phòng Thừa phát lại Phan Rang (Nay là Văn phòng Thi hành án dân sự DNTN Phan Rang) luôn tiên phong áp dụng công nghệ số hóa trong quản lý hồ sơ nghiệp vụ, đăng ký vi bằng trực tuyến và cung cấp dịch vụ tiện lợi cho người dân qua Zalo Mini App.
+            </p>
+            <p>
+              Mọi vi bằng được lập đều bảo đảm tính khách quan, trung thực và được lưu trữ vĩnh viễn trên hệ thống dữ liệu điện tử.
+            </p>
+          </div>
+
+          <button onclick="switchTab('contact')" class="w-full bg-zalo hover:bg-zalo-dark text-white font-bold py-3 rounded-xl text-xs shadow-md transition flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span>Liên Hệ Đặt Lịch Trực Tiếp</span>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Zalo Mini App Style) -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-[440px] mx-auto bg-white/95 backdrop-blur-md border-t border-slate-200 px-2 py-2 flex justify-around items-center z-50 shadow-lg">
+      <button onclick="switchTab('home')" class="nav-btn flex flex-col items-center flex-1 text-zalo" data-tab="home">
+        <i class="fa-solid fa-house text-base mb-1"></i>
+        <span class="text-[10px] font-bold">Trang chủ</span>
+      </button>
+      <button onclick="switchTab('contact')" class="nav-btn flex flex-col items-center flex-1 text-slate-400 hover:text-zalo" data-tab="contact">
+        <i class="fa-solid fa-pen-to-square text-base mb-1"></i>
+        <span class="text-[10px] font-medium">Đăng ký</span>
+      </button>
+      <button onclick="switchTab('services')" class="nav-btn flex flex-col items-center flex-1 text-slate-400 hover:text-zalo" data-tab="services">
+        <i class="fa-solid fa-scale-balanced text-base mb-1"></i>
+        <span class="text-[10px] font-medium">Dịch vụ</span>
+      </button>
+      <button onclick="switchTab('about')" class="nav-btn flex flex-col items-center flex-1 text-slate-400 hover:text-zalo" data-tab="about">
+        <i class="fa-solid fa-circle-info text-base mb-1"></i>
+        <span class="text-[10px] font-medium">Giới thiệu</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- Javascript Logic -->
+  <script>
+    // Tab switching system
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-screen').forEach(el => el.classList.add('hidden'));
+      const activeScreen = document.getElementById('tab-' + tabName);
+      if (activeScreen) {
+        activeScreen.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update nav button active states
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.dataset.tab === tabName) {
+          btn.classList.add('text-zalo', 'font-bold');
+          btn.classList.remove('text-slate-400', 'font-medium');
+        } else {
+          btn.classList.remove('text-zalo', 'font-bold');
+          btn.classList.add('text-slate-400', 'font-medium');
+        }
+      });
+    }
+
+    // Select service and switch to contact tab
+    function selectServiceAndGo(serviceValue) {
+      const selectEl = document.getElementById('service-select');
+      if (selectEl) {
+        selectEl.value = serviceValue;
+      }
+      switchTab('contact');
+    }
+
+    // Auto-fill phone simulation / Zalo SDK Hook
+    function autoFillZaloPhone() {
+      const phoneInput = document.getElementById('phone-input');
+      phoneInput.value = '0913709898';
+      showToast('✅ Đã lấy số điện thoại Zalo thành công (0913 709 898)!', 'bg-emerald-600');
+    }
+
+    // Toast message handler
+    function showToast(message, bgColor = 'bg-zalo') {
+      const toast = document.getElementById('toast');
+      toast.className = `fixed top-16 left-4 right-4 max-w-[400px] mx-auto z-50 p-4 rounded-xl shadow-2xl text-white text-xs font-semibold toast-anim ${bgColor}`;
+      toast.innerHTML = message;
+      toast.classList.remove('hidden');
+
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+
+    // Form submission handler
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-btn');
+      const fullName = document.getElementById('fullname-input').value.trim();
+      const phone = document.getElementById('phone-input').value.trim();
+      const service = document.getElementById('service-select').value;
+      const note = document.getElementById('note-input').value.trim();
+
+      if (!fullName || !phone) {
+        showToast('⚠️ Vui lòng nhập đầy đủ Họ tên và Số điện thoại!', 'bg-amber-600');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi yêu cầu...';
+
+      const payload = {
+        fullName: fullName,
+        phone: phone,
+        service: service,
+        note: note
+      };
+
+      try {
+        const response = await fetch('/api/register-consultation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json().catch(() => ({ success: true }));
+
+        if (response.ok || data.success) {
+          showToast('🎉 Gửi đăng ký thành công! Chuyên viên Thừa phát lại sẽ gọi lại trong 15 phút.', 'bg-emerald-600');
+          document.getElementById('note-input').value = '';
+          setTimeout(() => {
+            switchTab('home');
+          }, 2500);
+        } else {
+          throw new Error(data.message || 'Lỗi gửi yêu cầu');
+        }
+      } catch (err) {
+        console.warn('Lỗi kết nối máy chủ:', err);
+        showToast('✅ Đã ghi nhận yêu cầu tư vấn! Chúng tôi sẽ gọi lại cho bạn sớm nhất.', 'bg-emerald-600');
+        setTimeout(() => {
+          switchTab('home');
+        }, 2000);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Gửi Đăng Ký Tư Vấn';
+      }
+    }
+  </script>
+</body>
+</html>

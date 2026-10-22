@@ -1,0 +1,26 @@
+{
+  "app": {
+    "title": "VP Thừa Phát Lại Phan Rang (Nay là VP THADS DNTN Phan Rang)",
+    "headerTitle": "THỪA PHÁT LẠI & THADS PHAN RANG",
+    "headerColor": "#0068FF",
+    "textColor": "white",
+    "statusBar": "transparent",
+    "leftButton": "back"
+  },
+  "pages": [
+    "pages/index",
+    "pages/contact",
+    "pages/services",
+    "pages/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0068FF",
+    "navigationBarTitleText": "VP THỪA PHÁT LẠI PHAN RANG (VP THADS DNTN PHAN RANG)",
+    "navigationBarTextStyle": "white"
+  },
+  "listCSS": [
+    "src/css/app.css"
+  ],
+  "listSyncJS": []
+}
